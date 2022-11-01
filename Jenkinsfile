@@ -48,7 +48,7 @@ pipeline {
     agent any
       steps {
         sh 'echo "Docker is pushing ...."'
-      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/achatbilel'
+      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   }
   
