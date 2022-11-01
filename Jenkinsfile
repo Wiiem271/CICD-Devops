@@ -30,7 +30,27 @@ pipeline {
           sh 'mvn clean'
            }
     }
-
+   stage('Docker build') {
+    agent any
+      steps {
+        sh 'echo "building docker...."'
+      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/achatbilel .'
+      }
+  }
+    stage('Login'){
+      agent any
+      steps{
+        sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW '
+      }
+    }
+    
+   stage('Docker push') {
+    agent any
+      steps {
+        sh 'echo "Docker is pushing ...."'
+      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/achatbilel'
+      }
+  }
   
   }
    post {
