@@ -5,7 +5,9 @@ pipeline {
      jdk 'JAVA_HOME'
      maven 'M2_HOME'
   }
-  
+  environment{
+    DOCKERHUB_CREDENTIALS = credentials('dockerHub')
+  }
   stages {
       stage('Checkout Git'){
             steps{
