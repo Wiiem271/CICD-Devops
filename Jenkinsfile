@@ -35,13 +35,13 @@ pipeline {
   }
    post {
         success {
-             mail to: "devops.a7laness@gmail.com",
+             mail to: "devops.2223s@gmail.com",
                     subject: "Build sucess",
                     body: "sucess"
             echo 'successful'
         }
         failure {
-             mail to: "devops.a7laness@gmail.com",
+             mail to: "devops.2223@gmail.com",
                     subject: "Build failed",
                     body: "failed"
             echo 'failed'
