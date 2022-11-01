@@ -34,7 +34,7 @@ pipeline {
     agent any
       steps {
         sh 'echo "building docker...."'
-      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/achatbilel .'
+      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/tpachat1 .'
       }
   }
     stage('Login'){
