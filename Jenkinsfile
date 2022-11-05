@@ -5,6 +5,9 @@ pipeline {
      jdk 'JAVA_HOME'
      maven 'M2_HOME'
   }
+  environment{
+    DOCKERHUB_CREDENTIALS = credentials('dockerHub')
+  }
   
   stages {
       stage('Checkout Git'){
@@ -29,6 +32,19 @@ pipeline {
           sh 'echo "Clean the Project is processing ...."'
           sh 'mvn clean'
            }
+    }
+    stage('Docker build') {
+    agent any
+      steps {
+        sh 'echo "building docker...."'
+      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/tpachat1 .'
+      }
+  }
+    stage('Login'){
+      agent any
+      steps{
+        sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW '
+      }
     }
 
   
