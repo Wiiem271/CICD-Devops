@@ -1,0 +1,38 @@
+version: "3.3" 
+services: 
+   mysqldb: 
+     image: mysql 
+     restart: unless-stopped 
+     env_file: ./.env 
+     environment: 
+       - MYSQL_ROOT_PASSWORD=root 
+       - MYSQL_USER:root 
+       - MYSQL_DATABASE=tpachato 
+     ports: 
+       - 3306:3306 
+     volumes: 
+       - data:/var/lib/mysql 
+   app: 
+     depends_on: 
+       - mysqldb 
+     image: onsab/tpachatproject:$BUILD_NUMBER 
+     container_name: tpachatproject 
+     restart: on-failure 
+     env_file: ./.env 
+     ports: 
+       - "8089:8089" 
+     environment: 
+       SPRING_APPLICATION_JSON: '{ 
+         "spring.datasource.url"  : "jdbc:mysql://mysqldb:$MYSQLDB_DOCKER_PORT/$MYSQLDB_DATABASE?useSSL=false&allowPublicKeyRetrieval=true", 
+         "spring.datasource.username" :"root", 
+         "spring.datasource.password" :"root", 
+         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect", 
+         "spring.jpa.hibernate.ddl-auto" : "update" 
+       }' 
+     volumes: 
+       - .m2:/root/.m2 
+     stdin_open: true 
+     tty: true 
+  
+volumes: 
+   data:
