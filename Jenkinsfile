@@ -53,12 +53,30 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   } */
-   stage('SonarQube analysis') {
+   
+    stage('SonarQube analysis') {
             steps {
-              sh " mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=07204d1d63c1d3704637e5fbe911c197a5eae18a"
-                
+                withSonarQubeEnv('sonarqube') {
+                    sh '''
+					mvn sonar:sonar
+					sleep 2
+					'''
+                }
             }
         }
+        
+		stage("Quality Gate") {
+			steps {
+			script{
+			timeout(time: 1, unit: 'HOURS') { 
+					def qg = waitForQualityGate() 
+					if (qg.status != 'OK') {
+						error "Pipeline aborted due to quality gate failure: ${qg.status}"
+					}
+			}
+			}
+			}
+		}
     
     stage('Junit Testing') {
       steps {
