@@ -54,31 +54,13 @@ pipeline {
       }
   } */
    
-   stage('MVN SONARQUBE'){
-	
-	steps {
-		echo 'ANALYZING QUALITY OF CODE...';
+  stage("Sonar") {
+steps {
+sh " mvn  -f Spring/pom.xml clean install sonar:sonar -Dsonar.host.url=http://192.168.56.55:9000 -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4"
 
-		}
-	
-	}
-	
-	stage('SONAR : Step 1') {
-            steps {
-		echo 'SonarQube analysis..';
-                withSonarQubeEnv('SonarQube') {
-                    sh "mvn sonar:sonar"
-                }
-            }
-        }
-	
-	
-        stage("SONAR : Step 2") {
-            steps {
-		echo 'Quality Gate...';
-                waitForQualityGate abortPipeline: true
-            }
-        }
+
+}}
+        
 		
     
     stage('Junit Testing') {
