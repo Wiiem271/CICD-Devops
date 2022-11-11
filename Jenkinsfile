@@ -56,7 +56,7 @@ pipeline {
    
   stage("Sonar") {
 steps {
-sh " mvn  -f Spring/pom.xml clean install sonar:sonar -Dsonar.host.url=http://192.168.56.55:9000 -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4"
+sh " mvn  -f Spring/pom.xml clean install sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4"
 
 
 }}
