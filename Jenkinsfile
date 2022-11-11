@@ -53,12 +53,12 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   } */
-    stage('SonarQube analysis') {
+   stage('SonarQube analysis') {
             steps {
                 sh ''' mvn sonar:sonar \
-                    -Dsonar.projectKey=devops-fournisseur \
+                    -Dsonar.projectKey=tpachat1 \
                     -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=76e19b86c532f4803ce6f271ee4f131f6794f81e '''
+                    -Dsonar.login=07204d1d63c1d3704637e5fbe911c197a5eae18a '''
             }
         }
     stage('Junit Testing') {
