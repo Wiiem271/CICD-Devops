@@ -32,7 +32,7 @@ pipeline {
           sh 'mvn clean'
            }
     }
- stage('Docker build') {
+ /*stage('Docker build') {
     agent any
       steps {
         sh 'echo "building docker...."'
@@ -52,7 +52,15 @@ pipeline {
         sh 'echo "Docker is pushing ...."'
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
-  } 
+  } */
+    stage('SonarQube analysis') {
+            steps {
+                sh ''' mvn sonar:sonar \
+                    -Dsonar.projectKey=devops-fournisseur \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=76e19b86c532f4803ce6f271ee4f131f6794f81e '''
+            }
+        }
     stage('Junit Testing') {
       steps {
          sh 'echo "Junit Test is processing ...."'
