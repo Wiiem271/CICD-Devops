@@ -32,6 +32,10 @@ pipeline {
           sh 'mvn clean'
            }
     }
+	  stage("Build") {
+steps {
+sh " mvn -f  devops1/pom.xml compile"
+}}
  /*stage('Docker build') {
     agent any
       steps {
@@ -53,6 +57,7 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   } */
+	  
    
   stage("Sonar") {
 steps {
