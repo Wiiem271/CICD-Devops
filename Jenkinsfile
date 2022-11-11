@@ -56,8 +56,9 @@ pipeline {
    
   stage("Sonar") {
 steps {
-sh " mvn  -f devops1/pom.xml clean install sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4"
-
+sh ''' mvn sonar:sonar \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4 '''
 
 }}
         
