@@ -54,29 +54,32 @@ pipeline {
       }
   } */
    
-    stage('SonarQube analysis') {
+   stage('MVN SONARQUBE'){
+	
+	steps {
+		echo 'ANALYZING QUALITY OF CODE...';
+
+		}
+	
+	}
+	
+	stage('SONAR : Step 1') {
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh '''
-					mvn sonar:sonar
-					sleep 2
-					'''
+		echo 'SonarQube analysis..';
+                withSonarQubeEnv('SonarQube') {
+                    sh "mvn sonar:sonar"
                 }
             }
         }
-        
-		stage("Quality Gate") {
-			steps {
-			script{
-			timeout(time: 1, unit: 'HOURS') { 
-					def qg = waitForQualityGate() 
-					if (qg.status != 'OK') {
-						error "Pipeline aborted due to quality gate failure: ${qg.status}"
-					}
-			}
-			}
-			}
-		}
+	
+	
+        stage("SONAR : Step 2") {
+            steps {
+		echo 'Quality Gate...';
+                waitForQualityGate abortPipeline: true
+            }
+        }
+		
     
     stage('Junit Testing') {
       steps {
