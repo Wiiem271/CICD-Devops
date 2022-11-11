@@ -55,10 +55,8 @@ pipeline {
   } */
    stage('SonarQube analysis') {
             steps {
-                sh ''' mvn sonar:sonar \
-                    -Dsonar.projectKey=tpAchatProject \
-                    -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=07204d1d63c1d3704637e5fbe911c197a5eae18a '''
+              sh " mvn sonar:sonar -Dsonar.projectKey=test -Dsonar.host.url=http://localhost:9000 -Dsonar.login=07204d1d63c1d3704637e5fbe911c197a5eae18a"
+                
             }
         }
     stage('Junit Testing') {
