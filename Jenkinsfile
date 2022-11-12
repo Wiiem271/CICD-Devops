@@ -61,6 +61,13 @@ sh ''' mvn sonar:sonar \
                 sh 'mvn -DskipTests clean package' 
             }
         }
+        stage('MVN TEST') {
+                steps {
+                sh 'mvn test'
+                    
+                }
+                
+            }  
 	stage('Deploy to Nexus') {
               steps {
                 sh 'mvn deploy -e'
@@ -68,13 +75,7 @@ sh ''' mvn sonar:sonar \
             }
             }	
     
-   stage('MVN TEST') {
-                steps {
-                sh 'mvn test'
-                    
-                }
-                
-            }  
+   
   
   }
    post {
