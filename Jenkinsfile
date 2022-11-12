@@ -74,6 +74,13 @@ sh ''' mvn sonar:sonar \
                
             }
             }	
+            stage('Docker compose stage') {
+          
+            steps {
+            sh 'docker-compose up -d'
+               
+            }
+        }
     
    
   
