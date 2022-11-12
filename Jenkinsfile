@@ -1,33 +1,21 @@
 pipeline {
 
   agent any
-  tools {
-     jdk 'JAVA_HOME'
-     maven 'M2_HOME'
-  }
+  
   environment{
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
-    NEXUS_CREDENTIALS = credentials('nexus')
+    
    
   }
   stages {
       stage('Checkout Git'){
             steps{
                 echo 'Pulling...';
-                git branch : 'main',
+                git branch : 'bilel',
                 url : 'https://github.com/Wiiem271/devops1.git'
             }
         }
-    stage ('Check Tools Initializing') {
-            steps {
-                sh 'java --version'
-                sh 'mvn --version'
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
-            }
-        }
+   
         stage('Cleaning the Project') {
          steps {
           sh 'echo "Clean the Project is processing ...."'
