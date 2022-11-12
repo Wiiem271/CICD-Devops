@@ -7,6 +7,12 @@ pipeline {
   }
   environment{
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
+    NEXUS_CREDENTIALS = credentials('nexus')
+    NEXUS_VERSION = "nexus3"
+    NEXUS_PROTOCOL = "http"
+    NEXUS_URL = "192.168.177.24:8081"
+    NEXUS_CREDENTIAL_ID = "nexus"
+    NEXUS_REPOSITORY= "https://github.com/Wiiem271/devops1"
   }
   stages {
       stage('Checkout Git'){
@@ -67,7 +73,23 @@ sh ''' mvn sonar:sonar \
 
 }}
         
-		
+	stage('Deploy to Nexus') {
+              steps {
+                script {
+					nexusArtifactUploader artifacts: [[artifactId: 'tpAchatProject',
+                     classifier: '', file: 'target/tpAchatProject-1.0.jar', type: 'jar']],
+                      credentialsId: 'nexus', 
+                      groupId: 'com.esprit.examen', 
+                      nexusUrl: 'http://localhost:8081',
+                       nexusVersion: 'nexus3', 
+                       protocol: 'http', 
+                       repository: 'maven-snapshots',
+                        version: '1.0.6-SNAPSHOT'
+				}
+               
+            }
+          
+	}	
     
     stage('Junit Testing') {
       steps {
