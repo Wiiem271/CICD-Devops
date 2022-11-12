@@ -72,7 +72,11 @@ sh ''' mvn sonar:sonar \
                     -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4 '''
 
 }}
-        
+        stage('MVN PACKAGE') {
+            steps {
+                sh 'mvn -DskipTests clean package' 
+            }
+        }
 	stage('Deploy to Nexus') {
               steps {
                 script {
@@ -91,13 +95,13 @@ sh ''' mvn sonar:sonar \
           
 	}	
     
-    stage('Junit Testing') {
+   /* stage('Junit Testing') {
       steps {
          sh 'echo "Junit Test is processing ...."'
         sh 'mvn  test'
 
       }
-    }
+    }*/
   
   }
    post {
