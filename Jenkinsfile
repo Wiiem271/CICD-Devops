@@ -10,7 +10,7 @@ pipeline {
     NEXUS_CREDENTIALS = credentials('nexus')
     NEXUS_VERSION = "nexus3"
     NEXUS_PROTOCOL = "http"
-    NEXUS_URL = "localhost:8081"
+    NEXUS_URL = "192.168.0.8:8081"
     NEXUS_CREDENTIAL_ID = "nexus"
     NEXUS_REPOSITORY= "https://github.com/Wiiem271/devops1"
   }
@@ -80,7 +80,7 @@ sh ''' mvn sonar:sonar \
                      classifier: '', file: 'target/tpAchatProject-1.0.jar', type: 'jar']],
                       credentialsId: 'nexus', 
                       groupId: 'com.esprit.examen', 
-                      nexusUrl: 'http://localhost:8081',
+                      nexusUrl: 'http://http://192.168.0.8:8081',
                        nexusVersion: 'nexus3', 
                        protocol: 'http', 
                        repository: 'maven-snapshots',
