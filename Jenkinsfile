@@ -61,13 +61,11 @@ sh ''' mvn sonar:sonar \
                 sh 'mvn -DskipTests clean package' 
             }
         }
-	/*stage('Deploy to Nexus') {
+	stage('Deploy to Nexus') {
               steps {
                 sh 'mvn deploy -e'
                
-            }
-          
-	}*/	
+            }}	
     
    /*stage('MVN TEST') {
                 steps {
