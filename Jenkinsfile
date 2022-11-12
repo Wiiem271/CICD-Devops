@@ -79,17 +79,7 @@ sh ''' mvn sonar:sonar \
         }
 	stage('Deploy to Nexus') {
               steps {
-                script {
-					nexusArtifactUploader artifacts: [[artifactId: 'tpAchatProject',
-                     classifier: '', file: 'target/tpAchatProject-1.0.jar', type: 'jar']],
-                      credentialsId: 'nexus', 
-                      groupId: 'com.esprit.examen', 
-                      nexusUrl: 'http://http://192.168.0.8:8081',
-                       nexusVersion: 'nexus3', 
-                       protocol: 'http', 
-                       repository: 'mavensnapshots',
-                        version: '1.0.6-SNAPSHOT'
-				}
+                sh 'mvn deploy -e'
                
             }
           
