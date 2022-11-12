@@ -1,5 +1,3 @@
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-EXPOSE  8089
-ENTRYPOINT ["java","-jar","/app.jar"]
+ADD https://github.com/Wiiem271/devops1/tree/main/target .
+ENTRYPOINT ["java","-jar","tpAchatProject-1.0.jar"]
