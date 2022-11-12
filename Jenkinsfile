@@ -65,15 +65,16 @@ sh ''' mvn sonar:sonar \
               steps {
                 sh 'mvn deploy -e'
                
-            }}	
+            }
+            }	
     
-   /*stage('MVN TEST') {
+   stage('MVN TEST') {
                 steps {
                 sh 'mvn test'
                     
                 }
                 
-            }*/  
+            }  
   
   }
    post {
