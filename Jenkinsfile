@@ -32,7 +32,7 @@
           sh 'mvn clean'
            }
     }
- /*  stage('Docker build') {
+   stage('Docker build') {
     agent any
       steps {
         sh 'echo "building docker...."'
@@ -52,7 +52,7 @@
         sh 'echo "Docker is pushing ...."'
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
-  } */
+  } 
     stage('Junit Testing') {
       steps {
          sh 'echo "Junit Test is processing ...."'
