@@ -55,11 +55,11 @@ pipeline {
       }
   }
   */
-       stage("Sonar") {
+       stage("Sonarqube Check") {
         steps {
           sh ''' mvn sonar:sonar \
                     -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4 '''
+                    -Dsonar.login=e396ebd6ca355d2566c26d14334738f82178a312 '''
 
          }}
   
