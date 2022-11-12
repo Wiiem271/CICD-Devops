@@ -33,6 +33,7 @@ pipeline {
           sh 'mvn clean'
            }
     }
+    /*
     stage('Docker build') {
     agent any
       steps {
@@ -46,18 +47,26 @@ pipeline {
         sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW '
       }
     }
+    stage('Docker push') {
+    agent any
+      steps {
+        sh 'echo "Docker is pushing ...."'
+      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
+      }
+  }
+  */
 
   
   }
    post {
         success {
-             mail to: "devops.a7laness@gmail.com",
+             mail to: "devops.2223@gmail.com",
                     subject: "Build sucess",
                     body: "sucess"
             echo 'successful'
         }
         failure {
-             mail to: "devops.a7laness@gmail.com",
+             mail to: "devops.2223@gmail.com",
                     subject: "Build failed",
                     body: "failed"
             echo 'failed'
