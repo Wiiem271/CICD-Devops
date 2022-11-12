@@ -87,7 +87,7 @@ sh ''' mvn sonar:sonar \
                       nexusUrl: 'http://http://192.168.0.8:8081',
                        nexusVersion: 'nexus3', 
                        protocol: 'http', 
-                       repository: 'maven-snapshots',
+                       repository: 'mavensnapshots',
                         version: '1.0.6-SNAPSHOT'
 				}
                
