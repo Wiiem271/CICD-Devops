@@ -8,11 +8,7 @@ pipeline {
   environment{
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
     NEXUS_CREDENTIALS = credentials('nexus')
-    NEXUS_VERSION = "nexus3"
-    NEXUS_PROTOCOL = "http"
-    NEXUS_URL = "192.168.0.8:8081"
-    NEXUS_CREDENTIAL_ID = "nexus"
-    NEXUS_REPOSITORY= "https://github.com/Wiiem271/devops1"
+   
   }
   stages {
       stage('Checkout Git'){
