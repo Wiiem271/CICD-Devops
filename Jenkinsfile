@@ -10,7 +10,7 @@ pipeline {
     NEXUS_CREDENTIALS = credentials('nexus')
     NEXUS_VERSION = "nexus3"
     NEXUS_PROTOCOL = "http"
-    NEXUS_URL = "192.168.177.24:8081"
+    NEXUS_URL = "localhost:8081"
     NEXUS_CREDENTIAL_ID = "nexus"
     NEXUS_REPOSITORY= "https://github.com/Wiiem271/devops1"
   }
