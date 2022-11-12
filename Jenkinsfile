@@ -34,7 +34,7 @@ pipeline {
     }
 	  stage("Build") {
 steps {
-sh " mvn -f  devops1/pom.xml compile"
+sh " mvn compile"
 }}
  /*stage('Docker build') {
     agent any
