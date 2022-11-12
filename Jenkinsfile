@@ -69,13 +69,13 @@ sh ''' mvn sonar:sonar \
           
 	}	
     
-   stage('MVN TEST') {
+   /*stage('MVN TEST') {
                 steps {
                 sh 'mvn test'
                     
                 }
                 
-            }  
+            }*/  
   
   }
    post {
