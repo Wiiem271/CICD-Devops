@@ -69,13 +69,13 @@ sh ''' mvn sonar:sonar \
           
 	}	
     
-   /* stage('Junit Testing') {
-      steps {
-         sh 'echo "Junit Test is processing ...."'
-        sh 'mvn  test'
-
-      }
-    }*/
+   stage('MVN TEST') {
+                steps {
+                sh 'mvn test'
+                    
+                }
+                
+            }  
   
   }
    post {
