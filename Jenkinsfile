@@ -12,7 +12,7 @@ pipeline {
       stage('Checkout Git'){
             steps{
                 echo 'Pulling...';
-                git branch : 'main',
+                git branch : 'chebbichaima',
                 url : 'https://github.com/Wiiem271/devops1.git'
             }
         }
