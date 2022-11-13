@@ -1,4 +1,4 @@
- package com.esprit.examen.services;
+/* package com.esprit.examen.services;
 
 //import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -78,4 +78,6 @@ import com.esprit.examen.repositories.FournisseurRepository;
     
 
 }
+
+*/
 
