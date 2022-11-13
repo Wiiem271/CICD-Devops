@@ -26,7 +26,7 @@ pipeline {
 steps {
 sh " mvn compile"
 }}
- stage('Docker build') {
+ /*stage('Docker build') {
     agent any
       steps {
         sh 'echo "building docker...."'
@@ -46,7 +46,7 @@ sh " mvn compile"
         sh 'echo "Docker is pushing ...."'
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
-  } 
+  } */
 	  
    
   stage("Sonar") {
