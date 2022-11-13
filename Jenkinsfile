@@ -46,6 +46,13 @@ pipeline {
                 }
                 
             } 
+     stage('SonarQube stage') {
+          
+            steps {
+            sh'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=chichi1918'
+               
+            }
+        } 
  /*  stage('Docker build') {
     agent any
       steps {
