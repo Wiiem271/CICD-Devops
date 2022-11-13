@@ -21,6 +21,7 @@ import com.esprit.examen.repositories.FournisseurRepository;
 import com.esprit.examen.repositories.ProduitRepository;
 import com.esprit.examen.repositories.SecteurActiviteRepository;
 import com.esprit.examen.services.FournisseurServiceImpl;
+@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 public class FournisseurServiceImplUTest {
 
