@@ -26,7 +26,7 @@ import com.esprit.examen.repositories.FournisseurRepository;
 /*@ExtendWith({SpringExtension.class})
 @SpringBootTest*/
 
-@RunWith(SpringRunner.class)
+/*@RunWith(SpringRunner.class)
 @SpringBootTest
  public class FournisseurServiceUnitTest {
 
@@ -50,7 +50,7 @@ import com.esprit.examen.repositories.FournisseurRepository;
     		
     	} 
   */
-	@Test
+/*	@Test
     public void testAddFournisseur() {
     	//	List<Fournisseur> fournisseurs = fournisseurRepository.findAll();
     	//	int expected=fournisseurs.size();
@@ -79,5 +79,5 @@ import com.esprit.examen.repositories.FournisseurRepository;
 
 }
 
-*/
 
+*/
