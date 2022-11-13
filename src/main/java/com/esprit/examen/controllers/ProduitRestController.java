@@ -37,8 +37,8 @@ public class ProduitRestController {
 	@PostMapping("/add-produit")
 	@ResponseBody
 	public Produit addProduit(@RequestBody Produit p) {
-		
-		return produitService.addProduit(p);
+		Produit produit = produitService.addProduit(p);
+		return produit;
 	}
 
 	@DeleteMapping("/remove-produit/{produit-id}")

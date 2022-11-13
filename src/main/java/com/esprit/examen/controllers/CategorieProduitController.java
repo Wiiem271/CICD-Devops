@@ -40,8 +40,8 @@ public class CategorieProduitController {
 	@PostMapping("/add-categorieProduit")
 	@ResponseBody
 	public CategorieProduit addCategorieProduit(@RequestBody CategorieProduit cp) {
-		
-		return categorieProduitService.addCategorieProduit(cp);
+		CategorieProduit categorieProduit = categorieProduitService.addCategorieProduit(cp);
+		return categorieProduit;
 	}
 
 	@DeleteMapping("/remove-categorieProduit/{categorieProduit-id}")

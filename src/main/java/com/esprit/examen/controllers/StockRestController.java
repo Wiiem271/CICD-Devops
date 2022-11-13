@@ -38,8 +38,8 @@ public class StockRestController {
 	@PostMapping("/add-stock")
 	@ResponseBody
 	public Stock addStock(@RequestBody Stock s) {
-		
-		return stockService.addStock(s);
+		Stock stock = stockService.addStock(s);
+		return stock;
 	}
 
 	@DeleteMapping("/remove-stock/{stock-id}")
