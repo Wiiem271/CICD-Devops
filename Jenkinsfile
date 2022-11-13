@@ -32,6 +32,20 @@ pipeline {
           sh 'mvn clean'
            }
     }
+    stage('Mvn compile stage') {
+                steps {
+                sh 'mvn compile'
+                    
+                }
+                
+            }
+        stage('Mvn package stage'){
+                steps{
+                sh 'mvn package'
+                    
+                }
+                
+            } 
  /*  stage('Docker build') {
     agent any
       steps {
