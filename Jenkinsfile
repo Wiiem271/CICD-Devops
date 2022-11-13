@@ -5,7 +5,9 @@ pipeline {
      jdk 'JAVA_HOME'
      maven 'M2_HOME'
   }
-  
+  environment{
+    DOCKERHUB_CREDENTIALS = credentials('dockerHub')
+  }
   stages {
       stage('Checkout Git'){
             steps{
@@ -30,18 +32,45 @@ pipeline {
           sh 'mvn clean'
            }
     }
+ /*  stage('Docker build') {
+    agent any
+      steps {
+        sh 'echo "building docker...."'
+      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/tpachat1 .'
+      }
+  }
+    stage('Login'){
+      agent any
+      steps{
+        sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW '
+      }
+    }
+    
+   stage('Docker push') {
+    agent any
+      steps {
+        sh 'echo "Docker is pushing ...."'
+      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
+      }
+  } */
+    stage('Junit Testing') {
+      steps {
+         sh 'echo "Junit Test is processing ...."'
+        sh 'mvn  test'
 
+      }
+    }
   
   }
    post {
         success {
-             mail to: "devops.a7laness@gmail.com",
+             mail to: "devops.2223@gmail.com",
                     subject: "Build sucess",
                     body: "sucess"
             echo 'successful'
         }
         failure {
-             mail to: "devops.a7laness@gmail.com",
+             mail to: "devops.2223@gmail.com",
                     subject: "Build failed",
                     body: "failed"
             echo 'failed'
