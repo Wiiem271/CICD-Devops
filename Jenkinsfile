@@ -26,7 +26,7 @@ pipeline {
 steps {
 sh " mvn compile"
 }}
- /*stage('Docker build') {
+ stage('Docker build') {
     agent any
       steps {
         sh 'echo "building docker...."'
@@ -46,7 +46,7 @@ sh " mvn compile"
         sh 'echo "Docker is pushing ...."'
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
-  } */
+  } 
 	  
    
   stage("Sonar") {
@@ -56,7 +56,7 @@ sh ''' mvn sonar:sonar \
                     -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4 '''
 
 }}
-     /*   stage('MVN PACKAGE') {
+        stage('MVN PACKAGE') {
             steps {
                 sh 'mvn -DskipTests clean package' 
             }
@@ -83,7 +83,7 @@ sh ''' mvn sonar:sonar \
         }
     
    
-  */
+  
   }
    post {
         success {
