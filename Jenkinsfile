@@ -82,6 +82,7 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   } 
+  */
     stage('Junit Testing') {
       steps {
          sh 'echo "Junit Test is processing ...."'
@@ -91,7 +92,7 @@ pipeline {
     }
   
   }
-  */
+  
    stage('Docker compose stage') {
           
             steps {
