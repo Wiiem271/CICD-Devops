@@ -56,7 +56,7 @@ sh ''' mvn sonar:sonar \
                     -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4 '''
 
 }}
-        stage('MVN PACKAGE') {
+     /*   stage('MVN PACKAGE') {
             steps {
                 sh 'mvn -DskipTests clean package' 
             }
@@ -84,7 +84,7 @@ sh ''' mvn sonar:sonar \
     
    
   
-  }
+  }*/
    post {
         success {
              mail to: "devops.2223@gmail.com",
