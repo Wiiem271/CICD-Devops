@@ -68,6 +68,7 @@ pipeline {
                     -Dsonar.login=e396ebd6ca355d2566c26d14334738f82178a312 '''
 
          }}
+    
     stage("Maven Build") {
             steps {
                 script {
@@ -75,6 +76,15 @@ pipeline {
                 }
             }
         }
+      stage('docker-compose up') {
+      steps {
+         sh 'echo "docker compose up ...."'
+        sh 'docker ps'
+        
+      }
+      
+    }
+    /*
         stage('Deploy to Nexus') {
               steps {
                 script {
@@ -109,7 +119,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/ 
   }
    post {
         success {
