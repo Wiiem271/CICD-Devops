@@ -44,8 +44,8 @@ public class FournisseurRestController {
 	@PostMapping("/add-fournisseur")
 	@ResponseBody
 	public Fournisseur addFournisseur(@RequestBody Fournisseur f) {
-		Fournisseur fournisseur = fournisseurService.addFournisseur(f);
-		return fournisseur;
+		
+		return fournisseurService.addFournisseur(f);
 	}
 
 	
