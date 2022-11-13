@@ -60,6 +60,7 @@ pipeline {
                
             }
         }
+    /*
   stage('Docker build') {
     agent any
       steps {
@@ -90,6 +91,14 @@ pipeline {
     }
   
   }
+  */
+   stage('Docker compose stage') {
+          
+            steps {
+            sh 'docker-compose up -d'
+               
+            }
+        }
    post {
         success {
              mail to: "devops.2223@gmail.com",
