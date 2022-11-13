@@ -13,10 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.esprit.examen.entities.CategorieProduit;
 import com.esprit.examen.repositories.CategorieProduitRepository;
 
-@SpringBootTest
+//@SpringBootTest
 class CategorieProduitControllerTest {
 
-	@Autowired
+	/*@Autowired
 	CategorieProduitRepository categorieProduitRepository;
         @Autowired
 	CategorieProduitServiceImpl categorieProduitServiceImpl;
@@ -52,5 +52,5 @@ class CategorieProduitControllerTest {
 	
 	}
 
-
+/*
 }
