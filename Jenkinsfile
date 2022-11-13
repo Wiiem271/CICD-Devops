@@ -91,7 +91,7 @@ pipeline {
       }
     }
   
-  }
+  
   
    stage('Docker compose stage') {
           
@@ -100,6 +100,7 @@ pipeline {
                
             }
         }
+  }
    post {
         success {
              mail to: "devops.2223@gmail.com",
