@@ -53,6 +53,13 @@ pipeline {
                
             }
         } 
+    stage('Nexus stage') {
+          
+            steps {
+           sh 'mvn deploy -e'
+               
+            }
+        }
  /*  stage('Docker build') {
     agent any
       steps {
