@@ -13,7 +13,7 @@ services:
       - achatdb:/var/lib/mysql
 
   operateur_app:
-    build: ./
+    image: chaimach/tpachat1
     restart: on-failure
     environment:
       SPRING_APPLICATION_JSON: '{
