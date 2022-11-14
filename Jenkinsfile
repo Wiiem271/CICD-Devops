@@ -39,6 +39,13 @@ pipeline {
                 }
                 
             }
+    stage('Junit Testing') {
+          steps {
+             sh 'echo "Junit Test is processing ...."'
+            //sh 'mvn  test'
+
+          }
+    }
         stage('Mvn package stage'){
                 steps{
                 sh 'mvn package -DskipTests'
@@ -83,13 +90,7 @@ pipeline {
       }
   } 
   */
-    stage('Junit Testing') {
-      steps {
-         sh 'echo "Junit Test is processing ...."'
-        sh 'mvn  test'
 
-      }
-    }
   
   
   
