@@ -11,7 +11,7 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=root
     volumes:
-      - achatdb:/var/lib/mysql
+      - /var/lib/mysql
 
   facture_app:
     build: ./
@@ -22,6 +22,3 @@ services:
       - 8089:8089
     depends_on:
       - mysqldb
-
-volumes:
-  achatdb:
