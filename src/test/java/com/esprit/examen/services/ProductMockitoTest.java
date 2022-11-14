@@ -1,4 +1,4 @@
-package com.esprit.examen.services;
+/*package com.esprit.examen.services;
 
 import com.esprit.examen.entities.Produit;
 import com.esprit.examen.repositories.ProduitRepository;
@@ -58,3 +58,4 @@ public class ProductMockitoTest {
         Assertions.assertNotNull(list);
     }
 }
+*/
