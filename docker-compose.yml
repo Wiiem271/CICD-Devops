@@ -14,7 +14,7 @@ services:
       - /var/lib/mysql
 
   facture_app:
-    image: bilelfarah/tpachat1
+    image: bilelfarah/achatbilel
     container_name: springAchat
     restart: on-failure
     environment:

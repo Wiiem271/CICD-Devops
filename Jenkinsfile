@@ -30,7 +30,7 @@ sh " mvn compile"
     agent any
       steps {
         sh 'echo "building docker...."'
-      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/tpachat1 .'
+      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/achatbilel .'
       }
   }
     stage('Login'){
@@ -44,7 +44,7 @@ sh " mvn compile"
     agent any
       steps {
         sh 'echo "Docker is pushing ...."'
-      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
+      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/achatbilel'
       }
   } 
 	  
