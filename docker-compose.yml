@@ -11,8 +11,8 @@ services:
       - MYSQL_DATABASE=achatdb
       - MYSQL_USER=root
       - MYSQL_PASSWORD=root
-      volumes:
-        - achatdb:/var/lib/mysql
+    volumes:
+      - achatdb:/var/lib/mysql
 
   operateur_app:
     build: ./
