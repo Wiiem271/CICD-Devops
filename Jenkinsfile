@@ -6,7 +6,10 @@ pipeline {
      maven 'M2_HOME'
   }
   environment{
-    DOCKERHUB_CREDENTIALS = credentials('dockerHub')
+    registry = "chaimach/tpachat1"
+    registryCredential = 'dockerHub'
+    dockerImage = ''
+    //DOCKERHUB_CREDENTIALS = credentials('dockerHub')
   }
   stages {
       stage('Checkout Git'){
@@ -93,7 +96,29 @@ pipeline {
 
   
   
-  
+  stage('Building our image') {
+      steps {
+          script {
+              dockerImage = docker.build registry +":$BUILD_NUMBER"
+          }
+      }
+  }
+  stage('Deploy our image') {
+      steps {
+          script {
+              docker.withRegistry( '', registryCredential ) {
+                  dockerImage.push()
+              }
+          }
+      }
+  }
+  stage('Cleaning up') {
+      steps {
+          echo "docker rmi $registry:$BUILD_NUMBER "
+          sh "docker rmi $registry:$BUILD_NUMBER "
+  }
+}
+
    stage('Docker compose stage') {
           
             steps {
