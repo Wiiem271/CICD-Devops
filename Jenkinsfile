@@ -76,8 +76,20 @@ pipeline {
                 sh 'mvn deploy -e'
                
             }
-            }	
+  
+    
+    }	
+     stage('docker-compose up') {
+      steps {
+         sh 'echo "docker compose up -d ...."'
+        sh 'docker ps'
+        
+      }
+         }
+    
   }
+  
+  
    post {
         success {
              mail to: "devops.a7laness@gmail.com",
