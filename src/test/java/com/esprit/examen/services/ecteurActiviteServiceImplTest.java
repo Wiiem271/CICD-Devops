@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 @Slf4j
-public class SecteurActiviteServiceImplTest {
+public class ecteurActiviteServiceImplTest {
 
     @Mock
     SecteurActiviteRepository secteurRepo;
