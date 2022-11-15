@@ -21,8 +21,8 @@ pipeline {
    
         stage('Cleaning the Project') {
          steps {
-          sh 'echo "Clean the Project is processing ...."'
-          sh 'mvn clean'
+          
+          sh 'mvn clean package'
            }
     }
 	  
@@ -33,6 +33,26 @@ pipeline {
       sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/achatbilel .'
       }
   }
+	  stage('MVN TEST') {
+                steps {
+                sh 'mvn test'
+                    
+                }
+                
+            }  
+	  stage("Sonar") {
+steps {
+sh ''' mvn sonar:sonar \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4 '''
+
+}}
+	  stage('Deploy to Nexus') {
+              steps {
+                sh 'mvn deploy -e'
+               
+            }
+            }	
     stage('Login'){
       agent any
       steps{
@@ -46,37 +66,7 @@ pipeline {
         sh 'echo "Docker is pushing ...."'
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/achatbilel'
       }
-  } 
-	  
-   stage("Build") {
-steps {
-sh " mvn compile"
-}}
-  stage("Sonar") {
-steps {
-sh ''' mvn sonar:sonar \
-                    -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=64cc95cb7f0a69246acea3e81f9ff694ac6b29b4 '''
-
-}}
-        stage('MVN PACKAGE') {
-            steps {
-                sh 'mvn -DskipTests clean package' 
-            }
-        }
-        stage('MVN TEST') {
-                steps {
-                sh 'mvn test'
-                    
-                }
-                
-            }  
-	stage('Deploy to Nexus') {
-              steps {
-                sh 'mvn deploy -e'
-               
-            }
-            }	
+  } 	
             stage('Docker compose stage') {
           
             steps {
