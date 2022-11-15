@@ -59,7 +59,7 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   }
-  */
+
        stage("Sonarqube Check") {
         steps {
           sh " mvn compile"
@@ -120,6 +120,13 @@ pipeline {
                 }
             }
         }*/ 
+         stage('docker-compose up') {
+      steps {
+         sh 'echo "docker compose up -d ...."'
+        sh 'docker ps'
+        
+      }
+         }
   }
    post {
         success {
