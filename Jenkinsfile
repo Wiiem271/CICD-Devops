@@ -58,6 +58,15 @@ pipeline {
       }
   }
        }
+    stage("Sonarqube Check") {
+        steps {
+          sh " mvn compile"
+          sh ''' mvn sonar:sonar \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=4dcec4a3da03491f3866476018fc27d64995a7e0 '''
+
+         }}
+    
    post {
         success {
              mail to: "devops.a7laness@gmail.com",
