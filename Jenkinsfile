@@ -66,6 +66,17 @@ pipeline {
                     -Dsonar.login=4dcec4a3da03491f3866476018fc27d64995a7e0 '''
 
          }}
+    stage('MVN PACKAGE') {
+            steps {
+                sh 'mvn -DskipTests clean package' 
+            }
+        }
+    stage('Deploy to Nexus') {
+              steps {
+                sh 'mvn deploy -e'
+               
+            }
+            }	
   }
    post {
         success {
