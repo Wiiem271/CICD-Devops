@@ -13,7 +13,7 @@ pipeline {
       stage('Checkout Git'){
             steps{
                 echo 'Pulling...';
-                git branch : 'main',
+                git branch : 'taoufik',
                 url : 'https://github.com/Wiiem271/devops1.git'
             }
         }
