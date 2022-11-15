@@ -57,7 +57,7 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   }
-       }
+       
     stage("Sonarqube Check") {
         steps {
           sh " mvn compile"
@@ -66,7 +66,7 @@ pipeline {
                     -Dsonar.login=4dcec4a3da03491f3866476018fc27d64995a7e0 '''
 
          }}
-    
+  }
    post {
         success {
              mail to: "devops.a7laness@gmail.com",
