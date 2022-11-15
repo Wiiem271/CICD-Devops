@@ -48,7 +48,16 @@ pipeline {
     }
 
   
+ 
+
+  stage('Docker push') {
+    agent any
+      steps {
+        sh 'echo "Docker is pushing ...."'
+      sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
+      }
   }
+       }
    post {
         success {
              mail to: "devops.a7laness@gmail.com",
