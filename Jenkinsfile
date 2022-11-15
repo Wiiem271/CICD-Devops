@@ -1,7 +1,10 @@
 pipeline {
 
   agent any
-  
+  tools {
+     
+     maven 'M2_HOME'
+  }
   environment{
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
     
@@ -22,10 +25,7 @@ pipeline {
           sh 'mvn clean'
            }
     }
-	  stage("Build") {
-steps {
-sh " mvn compile"
-}}
+	  
  stage('Docker build') {
     agent any
       steps {
@@ -48,7 +48,10 @@ sh " mvn compile"
       }
   } 
 	  
-   
+   stage("Build") {
+steps {
+sh " mvn compile"
+}}
   stage("Sonar") {
 steps {
 sh ''' mvn sonar:sonar \
