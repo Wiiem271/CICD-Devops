@@ -16,7 +16,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: wiem441/tpachat1
+    image: wiem441/achatwiem
     container_name: springboot-app
     restart: on-failure
     env_file: ./.env
