@@ -38,7 +38,7 @@ pipeline {
           sh 'mvn clean'
            }
     }
-    
+/*    
     stage('Docker build') {
     agent any
       steps {
@@ -59,7 +59,7 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   }
-/*
+
        stage("Sonarqube Check") {
         steps {
           sh " mvn compile"
