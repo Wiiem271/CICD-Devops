@@ -49,7 +49,7 @@ pipeline {
 
   
  
-
+/*
   stage('Docker push') {
     agent any
       steps {
@@ -79,7 +79,7 @@ pipeline {
   
     
     }	
-     stage('docker-compose up') {
+    */  stage('docker-compose up') {
       steps {
          sh 'echo "docker compose up -d ...."'
         sh 'docker ps'
