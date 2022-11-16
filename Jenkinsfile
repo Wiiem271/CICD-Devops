@@ -76,6 +76,13 @@ pipeline {
                 }
             }
         }
+    stage('MVN TEST') {
+                steps {
+                sh 'mvn test'
+                    
+                }
+                
+            }  
      
     /*
         stage('Deploy to Nexus') {
