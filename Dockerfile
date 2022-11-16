@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
-ADD https://github.com/Wiiem271/devops1/tree/main/target .
-ENTRYPOINT ["java","-jar","tpAchatProject-1.0.jar"]
+FROM openjdk:11
 EXPOSE 8089
+COPY target/tpAchatProject-1.0.jar tpAchatProject-1.0.jar
+ENTRYPOINT ["java","-jar","/tpAchatProject-1.0.jar"]
