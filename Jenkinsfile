@@ -59,16 +59,6 @@ pipeline {
       sh 'docker push $DOCKERHUB_CREDENTIALS_USR/tpachat1'
       }
   }
-
-       stage("Sonarqube Check") {
-        steps {
-          sh " mvn compile"
-          sh ''' mvn sonar:sonar \
-                    -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=e396ebd6ca355d2566c26d14334738f82178a312 '''
-
-         }}
-   
     stage("Maven Build") {
             steps {
                 script {
@@ -83,7 +73,14 @@ pipeline {
                 }
                 
             }  
-     
+        stage("Sonarqube Check") {
+        steps {
+          sh " mvn compile"
+          sh ''' mvn sonar:sonar \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=e396ebd6ca355d2566c26d14334738f82178a312 '''
+
+         }}    
     
         stage('Deploy to Nexus') {
               steps {
