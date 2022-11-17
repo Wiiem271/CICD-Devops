@@ -7,11 +7,7 @@ pipeline {
   }
   environment{
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
-    NEXUS_VERSION = "nexus3"
-        NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "192.168.43.64:8081"
-        NEXUS_REPOSITORY = "maven-releases"
-        NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+
   }
   
   stages {
