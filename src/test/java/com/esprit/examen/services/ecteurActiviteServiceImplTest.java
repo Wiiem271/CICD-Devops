@@ -59,7 +59,7 @@ public class ecteurActiviteServiceImplTest {
     }
 
     @Test
-    public void retrieveAllFournisseursTest()
+    public void retrieveAllSecteurActiviteTest()
     {
         List<SecteurActivite> Ls = new ArrayList<SecteurActivite>() {
 
