@@ -72,12 +72,19 @@ pipeline {
                 sh 'mvn -DskipTests clean package' 
             }
         }
-    stage("Publish to Nexus Repository Manager") {
+    /*stage("Publish to Nexus Repository Manager") {
             steps {
                 
                    sh'mvn deploy -e'
             
-            }}
+            }} */ 
+    stage('MVN TEST') {
+                steps {
+                sh 'mvn test'
+                    
+                }
+                
+            }  
       stage('docker-compose up') {
       steps {
          sh 'echo "docker compose up -d ...."'
