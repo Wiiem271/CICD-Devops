@@ -106,8 +106,6 @@
                 </plugin>   
 		</plugins>
 	</build>
-
-</project>
 	<distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
