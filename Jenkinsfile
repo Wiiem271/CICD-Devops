@@ -9,7 +9,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
     NEXUS_VERSION = "nexus3"
     NEXUS_PROTOCOL = "http"
-    NEXUS_URL = "192.168.1.28:8081"
+    NEXUS_URL = "192.168.1.23:8081"
     NEXUS_REPOSITORY = "java-app"
     NEXUS_CREDENTIAL_ID = "deploymentRepo" 
   }
@@ -38,7 +38,7 @@ pipeline {
           sh 'mvn clean'
            }
     }
-/*    
+   
     stage('Docker build') {
     agent any
       steps {
@@ -68,7 +68,7 @@ pipeline {
                     -Dsonar.login=e396ebd6ca355d2566c26d14334738f82178a312 '''
 
          }}
-   */ 
+   
     stage("Maven Build") {
             steps {
                 script {
@@ -84,7 +84,7 @@ pipeline {
                 
             }  
      
-    /*
+    
         stage('Deploy to Nexus') {
               steps {
                 script {
@@ -119,7 +119,7 @@ pipeline {
                     }
                 }
             }
-        }*/ 
+        }
          stage('docker-compose up') {
       steps {
          sh 'echo "docker compose up -d ...."'
