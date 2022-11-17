@@ -66,7 +66,7 @@ pipeline {
                 }
             }
         }
-    stage('MVN TEST') {
+    stage('MOCK TEST') {
                 steps {
                 sh 'mvn test'
                     
