@@ -9,7 +9,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
     NEXUS_VERSION = "nexus3"
     NEXUS_PROTOCOL = "http"
-    NEXUS_URL = "192.168.1.23:8081"
+    NEXUS_URL = "172.20.10.4:8081"
     NEXUS_REPOSITORY = "java-app"
     NEXUS_CREDENTIAL_ID = "deploymentRepo" 
   }
