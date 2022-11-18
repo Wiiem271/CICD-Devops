@@ -26,13 +26,7 @@ pipeline {
            }
     }
 	  
- stage('Docker build') {
-    agent any
-      steps {
-        sh 'echo "building docker...."'
-      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/achatbilel .'
-      }
-  }
+ 
 	  stage('MVN TEST') {
                 steps {
                 sh 'mvn test'
@@ -53,6 +47,13 @@ sh ''' mvn sonar:sonar \
                
             }
             }	
+	  stage('Docker build') {
+    agent any
+      steps {
+        sh 'echo "building docker...."'
+      sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/achatbilel .'
+      }
+  }
     stage('Login'){
       agent any
       steps{
